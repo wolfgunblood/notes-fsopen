@@ -1,6 +1,9 @@
 import express from 'express'
+import cors from 'cors'
 const app = express()
 
+app.use(cors())
+app.use(express.json())
 
 let notes = [
   {
@@ -24,7 +27,7 @@ app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 })
 
-app.get('/api/notes', (request, response) => {
+app.get('/notes', (request, response) => {
   response.json(notes)
 })
 
